@@ -1,0 +1,17 @@
+CREATE TABLE analyses (
+ id SERIAL PRIMARY KEY,
+ kind VARCHAR(40) NOT NULL,
+ title VARCHAR(120),
+ risk_score INTEGER NOT NULL,
+ risk_level VARCHAR(20) NOT NULL,
+ threat_type VARCHAR(120),
+ summary TEXT,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE feedback (
+ id SERIAL PRIMARY KEY,
+ analysis_id INTEGER,
+ helpful BOOLEAN NOT NULL,
+ issue VARCHAR(80),
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
